@@ -12,8 +12,13 @@ Gameboard::Gameboard(int width, int height, Paddle &leftRef, Paddle &rightRef,
 
 void Gameboard::Print() {
   std::cout << "Gameboard:" << std::endl;
+  for (int x = 0; x <= width + 2; x++) {
+    std::cout << "=";
+  }
+  std::cout << std::endl;
   for (int y = 0; y <= height; y++) {
-    for (int x = 0; x <= height; x++) {
+    std::cout << "\\";
+    for (int x = 0; x <= width; x++) {
       if (x == ball.GetX() && y == ball.GetY()) {
         std::cout << "B";
       } else if (x == left.GetX() && y >= left.GetY() &&
@@ -28,8 +33,13 @@ void Gameboard::Print() {
         std::cout << " ";
       }
     }
+    std::cout << "\\";
     std::cout << std::endl;
   }
+  for (int x = 0; x <= width + 2; x++) {
+    std::cout << "=";
+  }
+  std::cout << std::endl;
   std::cout << "Ball: " << std::endl;
   ball.Print();
 }
@@ -43,6 +53,16 @@ void Gameboard::Update() {
     std::cout << "Collide!" << std::endl;
   } else {
     std::cout << "No collide" << std::endl;
+
+    // Check for out of bounds state.
+    if(ball.GetX() < 0){
+      std::cout << "Left loses" << std::endl;
+      this->isFinished = true;
+    }
+    else if(ball.GetX() > this->width){
+      std::cout << "Right loses" << std::endl;
+      this->isFinished = true;
+    }
   }
 }
 

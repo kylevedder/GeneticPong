@@ -24,7 +24,7 @@ void Ball::Update() {
   if (yPos > yMax || yPos + yVel < 0) {
     std::cout << "Wall Bounce" << std::endl;
     yVel *= -1;
-    // Ball remains in same y for a tick
+    // Ball remains in same Y for a tick
     yPos += yVel;
   }
 }

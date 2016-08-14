@@ -14,12 +14,12 @@ int main() {
   Paddle leftPaddle = Paddle(0, BOARD_HEIGHT / 2, 5);
   Paddle rightPaddle = Paddle(BOARD_WIDTH, BOARD_HEIGHT / 2, 10);
   Ball ball =
-      Ball(BOARD_WIDTH / 2, BOARD_HEIGHT / 2, 1, 1, BOARD_WIDTH, BOARD_HEIGHT);
+      Ball(BOARD_WIDTH / 2 + 3, BOARD_HEIGHT / 2, 1, 1, BOARD_WIDTH, BOARD_HEIGHT);
 
   Gameboard gameboard =
       Gameboard(BOARD_WIDTH, BOARD_HEIGHT, leftPaddle, rightPaddle, ball);
   gameboard.Print();
-  for (int i = 0; i < 15; i++) {
+  for (int i = 0; !gameboard.IsFinished(); i++) {
     std::cout << "Loop Count: " << i << std::endl;
     gameboard.Update();
     gameboard.Print();
