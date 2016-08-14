@@ -4,6 +4,7 @@ cc_library(
     visibility = ["//visibility:public"],
     deps = [
         "//src/gameboard",
+        "//src/decision",
     ],
 )
 

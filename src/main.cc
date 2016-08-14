@@ -1,6 +1,7 @@
 #include "ball/ball.h"
 #include "gameboard/gameboard.h"
 #include "paddle/paddle.h"
+#include "decision/node.h"
 #include <iostream>
 
 #define BOARD_WIDTH (20)
@@ -24,5 +25,8 @@ int main() {
     gameboard.Update();
     gameboard.Print();
   }
+  Node parent = Node();
+  Node child = Node();
+  parent.AddLink(child);
   return 0;
 }
