@@ -30,11 +30,26 @@ void Gameboard::Print() {
     }
     std::cout << std::endl;
   }
+  std::cout << "Ball: " << std::endl;
+  ball.Print();
 }
 
 bool Gameboard::IsFinished() { return isFinished; }
 
-void Gameboard::Update() {}
+void Gameboard::Update() {
+  ball.Update();
+  if (BallCollides(left) || BallCollides(right)) {
+    ball.Bounce();
+    std::cout << "Collide!" << std::endl;
+  } else {
+    std::cout << "No collide" << std::endl;
+  }
+}
+
+bool Gameboard::BallCollides(Paddle &paddle) {
+  return paddle.GetX() == ball.GetX() && paddle.GetY() <= ball.GetY() &&
+         paddle.GetY() + paddle.GetSize() >= paddle.GetY();
+}
 
 int Gameboard::GetWidth() { return width; }
 

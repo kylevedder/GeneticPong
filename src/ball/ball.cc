@@ -2,7 +2,7 @@
 #include <iostream>
 
 namespace genetic {
-  
+
 Ball::Ball(int x, int y, int xVel, int yVel, int xMax, int yMax) {
   this->xPos = x;
   this->yPos = y;
@@ -18,11 +18,18 @@ void Ball::Print() {
 }
 
 void Ball::Update() {
-  if (yPos + yVel > yMax || yPos + yVel < 0) {
+  // Swap Y Value on wall collide
+  yPos += yVel;
+  xPos += xVel;
+  if (yPos > yMax || yPos + yVel < 0) {
+    std::cout << "Wall Bounce" << std::endl;
     yVel *= -1;
+    // Ball remains in same y for a tick
     yPos += yVel;
   }
 }
+
+void Ball::Bounce() { xVel *= -1; }
 
 int Ball::GetX() { return xPos; }
 

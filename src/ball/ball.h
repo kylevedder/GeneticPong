@@ -10,6 +10,8 @@ public:
   int GetX();
   int GetY();
 
+  void Bounce();
+
   void Update();
 
 private:

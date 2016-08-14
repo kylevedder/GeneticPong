@@ -17,6 +17,9 @@ public:
   void Update();
 
 private:
+
+  bool BallCollides(Paddle &padde);
+
   int xPos, yPos, xVelocity, yVelocity, width, height;
   bool isFinished;
   Paddle &left;
