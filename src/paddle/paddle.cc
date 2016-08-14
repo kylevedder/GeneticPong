@@ -2,9 +2,10 @@
 #include <iostream>
 
 namespace genetic {
-Paddle::Paddle(int x, int y) {
+Paddle::Paddle(int x, int y, int size) {
   this->xPos = x;
   this->yPos = y;
+  this->size = size;
 }
 
 void Paddle::Print() {
@@ -25,4 +26,6 @@ void Paddle::Move(Direction direction) {
 int Paddle::GetX() { return xPos; }
 
 int Paddle::GetY() { return yPos; }
+
+int Paddle::GetSize() { return size; }
 }

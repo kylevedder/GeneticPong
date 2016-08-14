@@ -1,10 +1,8 @@
 cc_library(
-    name = "gameboard",
+    name = "ball",
     srcs =  glob(["*.cc"]),
     hdrs =  glob(["*.h"]),
     visibility = ["//visibility:public"],
     deps = [
-        "//src/paddle",
-        "//src/ball",
     ],
 )

@@ -1,5 +1,5 @@
 cc_library(
-    name = "src-lib",
+    name = "src",
     srcs =  glob(["*.cc"]),
     visibility = ["//visibility:public"],
     deps = [
@@ -8,8 +8,8 @@ cc_library(
 )
 
 cc_binary(
-    name = "main",
+    name = "exec",
     deps = [
-        ":src-lib",
+        ":src",
     ],
 )

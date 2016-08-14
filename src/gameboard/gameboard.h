@@ -1,17 +1,19 @@
 #ifndef _GAMEBOARD_H_
 #define _GAMEBOARD_H_
 
+#include "../ball/ball.h"
 #include "../paddle/paddle.h"
 
 namespace genetic {
 class Gameboard {
 public:
+  Gameboard(int width, int height, Paddle &left, Paddle &right, Ball &ball);
   void Print();
-  Gameboard(int startX, int startY, int xVelocity, int yVelocity, int width,
-            int height, Paddle &left, Paddle &right);
+  bool IsFinished();
   int GetBallX();
   int GetBallY();
-  bool IsFinished();
+  int GetWidth();
+  int GetHeight();
   void Update();
 
 private:
@@ -19,6 +21,7 @@ private:
   bool isFinished;
   Paddle &left;
   Paddle &right;
+  Ball &ball;
 };
 }
 #endif /* ifndef _GAMEBOARD_H_ */
